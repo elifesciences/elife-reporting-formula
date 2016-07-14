@@ -1,0 +1,5 @@
+/opt/elife-reporting/*.log {
+    weekly
+    rotate 4
+    missingok
+}

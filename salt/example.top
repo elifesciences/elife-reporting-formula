@@ -1,0 +1,6 @@
+base:
+    '*':
+        - elife
+        - elife.nginx
+        - elife-reporting
+        - elife-reporting.web
