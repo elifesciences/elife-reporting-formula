@@ -1,7 +1,10 @@
 #!/bin/bash
 # Generate the report using the latest published.csv file
 
-set -e # everything must succeed
+set -e # everything must pass
+set -u # no unbound variables
+set -xv  # output the scripts and interpolated steps
+
 cd /opt/elife-reporting/
 
 # purge any old reports, any old published.csv files

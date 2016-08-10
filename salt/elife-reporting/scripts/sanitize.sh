@@ -2,7 +2,9 @@
 # takes a generated report and drops some potentially sensitive fields
 # output is placed in a subdirectory called 'sanitized'
 
-set -e
+set -e # everything must pass
+set -u # no unbound variables
+set -xv  # output the scripts and interpolated steps
 
 report=$1
 

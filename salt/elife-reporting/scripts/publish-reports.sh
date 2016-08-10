@@ -2,7 +2,9 @@
 # 'publishing' the reports involves sanitizing their contents and moving them
 # to the /srv/jg-reports/ directory where the web server does a file listing.
 
-set -e # everything must succeed
+set -e # everything must pass
+set -u # no unbound variables
+set -xv  # output the scripts and interpolated steps
 
 cd /opt/elife-reporting/
 
