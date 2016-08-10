@@ -2,7 +2,6 @@ reporting-deps:
     pkg.installed:
         - pkgs:
             - sqlite3
-            - csvtool
 
     # super-handy csv wrangling commands
     # currently used to sanitize reports
@@ -69,17 +68,6 @@ configure-s3-bash-credentials:
         - contents: {{ pillar.elife_reporting.aws.aws_secret }}
         - contents_newline: False
 
-#
-# cron
-#
-
-reports-dir:
-    file.directory:
-        - user: {{ pillar.elife.deploy_user.username }}
-        - group: {{ pillar.elife.deploy_user.username }}
-        - name: /srv/jg-reports/
-        - makedirs: True
-
 generate-report-scripts:
     file.recurse:
         - user: {{ pillar.elife.deploy_user.username }}
@@ -87,18 +75,21 @@ generate-report-scripts:
         - source: salt://elife-reporting/scripts/
         - file_mode: 544 # readable to all, executable by elife
 
+#
+# cron
+#
+
 # every weekday at 12:00pm UTC
 generate-report: # daily
     cron.present:
         - user: {{ pillar.elife.deploy_user.username }}
         - identifier: generate-report
         - name: bash /opt/elife-reporting/gen-report-populate-reports-dir.sh
-        - minute: 0
         - hour: 12
+        - minute: 15
         - require:
             - cmd: configure-jg-tools
             - file: generate-report-scripts
-            - file: reports-dir
 
 rotate-reports-and-logs:
     file.managed:

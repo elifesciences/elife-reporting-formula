@@ -10,7 +10,7 @@ rm -f published.csv paper_history*
 # download the latest published.csv file
 # TODO: update path to report once we have something less ad-hoc and in production
 echo "downloading published.csv from Lax ..."
-wget -c https://lax.elifesciences.org/reports/published.csv -O published.csv --quiet --no-check-certificate
+wget -c https://lax.elifesciences.org/reports/published.csv -O published.csv --quiet
 # generate the report without prompts
 echo "generating report ..."
 NOCONFIRM=1 bash /opt/elife-reporting/GetData.sh &> /tmp/cronjob-$(date -I).log

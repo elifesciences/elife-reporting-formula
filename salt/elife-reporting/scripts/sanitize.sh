@@ -1,9 +1,14 @@
 #!/bin/bash
+# takes a generated report and drops some potentially sensitive fields
+# output is placed in a subdirectory called 'sanitized'
+
 set -e
-cd /opt/elife-reporting/
+
 report=$1
 
-if [ ! -f $report ]; then
+cd /opt/elife-reporting/
+
+if [ ! -e $report ]; then
     echo "first argument must be the filename of the report to sanitize"
     exit 1
 fi
