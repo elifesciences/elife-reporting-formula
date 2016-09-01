@@ -13,7 +13,7 @@ s3bash-dep:
         - user: root
         - group: root
         - name: /opt/s3-bash.0.02/
-        - source: http://s3-bash.googlecode.com/files/s3-bash.0.02.tar.gz
+        - source: https://github.com/elifesciences/s3-bash/releases/download/0.02/s3-bash.0.02.tar.gz
         - archive_format: tar
         - source_hash: md5=3271b462ee96c5186de7747a557935e9
 
