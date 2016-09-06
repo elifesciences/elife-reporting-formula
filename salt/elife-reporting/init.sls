@@ -84,7 +84,7 @@ generate-report: # daily
     cron.present:
         - user: {{ pillar.elife.deploy_user.username }}
         - identifier: generate-report
-        - name: bash /opt/elife-reporting/gen-report-populate-reports-dir.sh
+        - name: cd /opt/elife-reporting/ && /bin/bash gen-report-populate-reports-dir.sh
         - hour: 12
         - minute: 15
         - require:
