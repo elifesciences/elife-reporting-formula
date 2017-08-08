@@ -10,6 +10,10 @@ cd /opt/elife-reporting/
 # purge any old reports, any old published.csv files
 echo "cleaning up old files ..."
 rm -f published.csv paper_history*
+rm -f elife_paper_stats.sqlite
+
+# regenerate the database
+sh CreateDatabase.sh
 
 # download the latest published.csv file
 # UPDATE 2017-05-16, a few notes:
