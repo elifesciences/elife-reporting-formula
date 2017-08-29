@@ -9,7 +9,7 @@ cd /opt/elife-reporting/
 
 # purge any old reports, any old published.csv files
 echo "cleaning up old files ..."
-rm -f published.csv paper_history*
+rm -f published.csv #paper_history* # paper_history* preserved 2017-08-29 for debugging
 rm -f elife_paper_stats.sqlite
 
 # regenerate the database
