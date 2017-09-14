@@ -4,3 +4,4 @@ base:
         - elife.nginx
         - elife-reporting
         - elife-reporting.web
+        - elife-reporting.cron
