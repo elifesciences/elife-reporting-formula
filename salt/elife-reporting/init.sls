@@ -17,6 +17,7 @@ s3bash-dep:
         - source: https://github.com/elifesciences/s3-bash/releases/download/0.02/s3-bash.0.02.tar.gz
         - archive_format: tar
         - source_hash: md5=3271b462ee96c5186de7747a557935e9
+        - enforce_toplevel: false # we can guarantee this zip file is ok
 
     # needs a patch:
     # /opt/s3-bash.0.02/s3-common-functions
@@ -39,6 +40,7 @@ install-jg-tools:
     git.latest:
         - user: {{ pillar.elife.deploy_user.username }}
         - name: https://github.com/elifesciences/eLife-Reporting-SQL
+        - force_clone: true # lax may install some helper scripts before this clone, when the two are bundled
         - target: /opt/elife-reporting
         - require:
             - file: install-jg-tools
