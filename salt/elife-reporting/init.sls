@@ -3,11 +3,6 @@ reporting-deps:
         - pkgs:
             - sqlite3
 
-    # super-handy csv wrangling commands
-    # currently used to sanitize reports
-    pip.installed:
-        - name: csvkit
-
 s3bash-dep:
     archive.extracted:
         - user: root
