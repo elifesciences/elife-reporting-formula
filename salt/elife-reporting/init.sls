@@ -53,7 +53,7 @@ configure-jg-tools:
 
     cmd.run:
         - cwd: /opt/elife-reporting
-        - user: {{ pillar.elife.deploy_user.username }}
+        - runas: {{ pillar.elife.deploy_user.username }}
         - name: source CreateDatabase.sh && mkdir -p output
         - require:
             - git: install-jg-tools
