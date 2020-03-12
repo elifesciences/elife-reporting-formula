@@ -61,10 +61,14 @@ configure-jg-tools:
             - test -f /opt/elife-reporting/elife_paper_stats.sqlite
 
 configure-s3-bash-credentials:
-    file.managed:
-        - name: /opt/elife-reporting/aws-secret-key
-        - contents: {{ pillar.elife_reporting.aws.aws_secret }}
-        - contents_newline: False
+    # lsh@2020-03: bug in salt 2018.3, fixed in 2019.2, where `contents_newline` is being ignored
+    # - https://github.com/saltstack/salt/issues/54177
+    #file.managed:
+    #    - name: /opt/elife-reporting/aws-secret-key
+    #    - contents: {{ pillar.elife_reporting.aws.aws_secret }}
+    #    - contents_newline: False
+    cmd.run:
+        - name: printf "{{ pillar.elife_reporting.aws.aws_secret }}" > /opt/elife-reporting/aws-secret-key
 
 generate-report-scripts:
     file.recurse:
