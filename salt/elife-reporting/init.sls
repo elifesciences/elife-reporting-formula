@@ -22,7 +22,6 @@ s3bash-dep:
     file.patch:
         - name: /opt/s3-bash.0.02/s3-common-functions
         - source: salt://elife-reporting/patches/s3-common-functions.patch
-        - hash: md5=cdad362deb7d54afe62c8b5acc02dda6
         - require:
             - archive: s3bash-dep
 
