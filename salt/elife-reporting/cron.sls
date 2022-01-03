@@ -21,6 +21,6 @@ prune-generated-reports: # daily
     cron.present:
         - user: {{ pillar.elife.deploy_user.username }}
         - identifier: prune-generated-reports
-        - name: cd /opt/elife-reporting/ && find -name 'paper_history*' -mtime +7
+        - name: cd /opt/elife-reporting/ && find -name 'paper_history*' -mtime +7 -delete
         - hour: 12
         - minute: 45
